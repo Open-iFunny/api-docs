@@ -1,0 +1,140 @@
+<div>
+    <h1>user-types</h1>
+    <h1 data-heading="🎭 User Types">🎭 User Types</h1>
+    <h3 data-heading="User">User</h3>
+    <p>It represents a single iFunny user. Some of the auxiliary types are broken out below.</p>
+    <pre class="language-ts" tabindex="0"><code class="language-ts is-loaded"><span class="token keyword">type</span> <span class="token class-name">User</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    nick<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    original_nick<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    about<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    
+    nick_color<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    cover_bg_color<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    cover_url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    web_url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+
+    bans<span class="token operator">:</span> Ban<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    are_you_blocked<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_available_for_chat<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_banned<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_blocked<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_deleted<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_in_subscribers<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_in_subscriptions<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_private<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_subscribed_to_updates<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    is_verified<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+
+    meme_experience<span class="token operator">:</span> MemeExperience<span class="token punctuation">,</span>
+    messaging_privacy_status<span class="token operator">:</span> <span class="token string">"closed"</span> <span class="token operator">|</span> <span class="token string">"public"</span> <span class="token operator">|</span> <span class="token string">"subscribers"</span><span class="token punctuation">,</span>
+    messenger_active<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    messenger_token<span class="token operator">:</span> <span class="token string">"1010101010101010101010101010101010101010"</span><span class="token punctuation">,</span> <span class="token comment">// deprecated</span>
+    num<span class="token operator">:</span> Numbers<span class="token punctuation">,</span>
+    photo<span class="token operator">:</span> ProfilePhoto<span class="token punctuation">,</span>
+    rating<span class="token operator">:</span> Rating
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Ban</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    date_until<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token comment">// UNIX timestamp</span>
+    id<span class="token operator">:</span>         <span class="token builtin">string</span><span class="token punctuation">,</span> 
+    type<span class="token operator">:</span>       <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">ProfilePhoto</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+	bg_color<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// hex color code, ie "597aa7"</span>
+	url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+	thumb<span class="token operator">:</span> <span class="token punctuation">{</span>
+		large_url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+		medium_url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+		small_url<span class="token operator">:</span> <span class="token builtin">string</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Numbers</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    achievements<span class="token operator">:</span>  <span class="token builtin">number</span><span class="token punctuation">,</span>
+    created<span class="token operator">:</span>       <span class="token builtin">number</span><span class="token punctuation">,</span>
+    featured<span class="token operator">:</span>      <span class="token builtin">number</span><span class="token punctuation">,</span>
+    subscribers<span class="token operator">:</span>   <span class="token builtin">number</span><span class="token punctuation">,</span>
+    subscriptions<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
+    total_posts<span class="token operator">:</span>   <span class="token builtin">number</span><span class="token punctuation">,</span>
+    total_smiles<span class="token operator">:</span>  <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Numbers</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    achievements<span class="token operator">:</span>  <span class="token builtin">number</span><span class="token punctuation">,</span>
+    created<span class="token operator">:</span>       <span class="token builtin">number</span><span class="token punctuation">,</span>
+    featured<span class="token operator">:</span>      <span class="token builtin">number</span><span class="token punctuation">,</span>
+    subscribers<span class="token operator">:</span>   <span class="token builtin">number</span><span class="token punctuation">,</span>
+    subscriptions<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
+    total_posts<span class="token operator">:</span>   <span class="token builtin">number</span><span class="token punctuation">,</span>
+    total_smiles<span class="token operator">:</span>  <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Level</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+	id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+	value<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
+	points<span class="token operator">:</span> <span class="token builtin">number</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Rating</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    points<span class="token operator">:</span>        <span class="token builtin">number</span><span class="token punctuation">,</span>
+    is_show_level<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    current_level<span class="token operator">:</span> Level<span class="token punctuation">,</span>
+    next_level<span class="token operator">:</span>    Level<span class="token punctuation">,</span>
+    max_level<span class="token operator">:</span>     Level
+<span class="token punctuation">}</span>
+
+</code></pre>
+    <h3 data-heading="Self User">Self User</h3>
+    <p>The <span class="internal-link">User</span> type that includes information about the auth'd caller</p>
+    <pre class="language-ts" tabindex="0"><code class="language-ts is-loaded"><span class="token keyword">type</span> <span class="token class-name">SelfUser</span> <span class="token operator">=</span> User <span class="token operator">&amp;</span> <span class="token punctuation">{</span>
+	email<span class="token operator">:</span>                     <span class="token builtin">string</span><span class="token punctuation">,</span>
+	need_account_setup<span class="token operator">:</span>        <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	safe_mode<span class="token operator">:</span>                 <span class="token builtin">boolean</span>
+    
+    is_blocked_in_messenger<span class="token operator">:</span>      <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	is_ifunny_team_member<span class="token operator">:</span>        <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	is_moderator<span class="token operator">:</span>                 <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	have_unnotified_achievements<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	have_unnotified_bans<span class="token operator">:</span>         <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	have_unnotified_levels<span class="token operator">:</span>       <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+	have_unnotified_strikes<span class="token operator">:</span>      <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+
+    
+    phone<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    phone_data<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        code<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+        <span class="token builtin">number</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    unconfirmed_phone<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    unconfirmed_phone_data<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        code<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+        <span class="token builtin">number</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre>
+    <h3 data-heading="Meme Experience">Meme Experience</h3>
+    <p>The number of days you've been "active" on iFunny. The exact activity criteria isn't known, but it seems like
+        unused accounts stop accruing rank. The rank determines the badge info.</p>
+    <pre class="language-typescript" tabindex="0"><code class="language-typescript is-loaded"><span class="token keyword">type</span> <span class="token class-name">MemeExperience</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  badge_size<span class="token operator">:</span> <span class="token punctuation">{</span> h<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>    w<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  badge_url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  days<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
+  next_milestone<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
+  rank<span class="token operator">:</span> <span class="token string">"Meme Explorer"</span>             <span class="token comment">// 1-4 days</span>
+      <span class="token operator">|</span> <span class="token string">"Meme Bro"</span>                  <span class="token comment">// 5-24 days</span>
+      <span class="token operator">|</span> <span class="token string">"Meme Daddy"</span>                <span class="token comment">// 25-49 days</span>
+      <span class="token operator">|</span> <span class="token string">"Dank Memer"</span>                <span class="token comment">// 50-99 days</span>
+      <span class="token operator">|</span> <span class="token string">"Meme Master Baker"</span>         <span class="token comment">// 100-199 days</span>
+      <span class="token operator">|</span> <span class="token string">"Deep Fried Memer"</span>          <span class="token comment">// 200-299 days</span>
+      <span class="token operator">|</span> <span class="token string">"Saucy Memer"</span>               <span class="token comment">// 300-499 days</span>
+      <span class="token operator">|</span> <span class="token string">"Original Meme Gangster"</span>    <span class="token comment">// 500-665 days</span>
+      <span class="token operator">|</span> <span class="token string">"Meme Demon"</span>                <span class="token comment">// 666-910 days</span>
+      <span class="token operator">|</span> <span class="token string">"Steal Beams of Memes"</span>      <span class="token comment">// 911-999 days</span>
+      <span class="token operator">|</span> <span class="token string">"Meme Dealer"</span>               <span class="token comment">// 1000-1499 days</span>
+      <span class="token operator">|</span> <span class="token string">"iFunny Veteran"</span>            <span class="token comment">// 1500-1999 days</span>
+      <span class="token operator">|</span> <span class="token string">"Chef's Meme Agent"</span>         <span class="token comment">// 2000+ days</span>
+</code></pre>
+</div>
